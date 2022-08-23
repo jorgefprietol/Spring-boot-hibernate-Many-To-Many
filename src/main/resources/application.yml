@@ -1,0 +1,35 @@
+server.port: 8090
+spring:
+  application:
+    name: many-to-many
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    initialize: true
+    initialization-mode: always
+    hikari:
+      connection-timeout: 6000
+      initialization-fail-timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        enable_lazy_load_no_trans: true
+
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+
